@@ -1,0 +1,79 @@
+arr = []
+print("Введите 20 целых чисел:")
+for i in range(20):
+    while True:
+        try:
+            num = int(input())
+            arr.append(num)
+            break
+        except ValueError:
+            print("Некорректный ввод. Пожалуйста, введите целое число.")
+
+for i in range(len(arr)):
+    if arr[i] > 0:
+        arr[i] = 0
+    elif arr[i] < 0:
+        arr[i] = arr[i] ** 2  # Используем ** для возведения в квадрат
+
+print("Измененный массив:")
+for num in arr:
+    print(f"{num:2d}", end=" ")  # Форматирование вывода
+print()
+
+
+
+
+arr = []
+print("Введите 20 целых чисел:")
+for i in range(20):
+    while True:
+        try:
+            num = int(input())
+            arr.append(num)
+            break
+        except ValueError:
+            print("Некорректный ввод. Пожалуйста, введите целое число.")
+
+unordered = False
+for i in range(19):
+    if arr[i] > arr[i + 1]:
+        unordered = True
+        break
+
+if unordered:
+    print("Массив НЕ упорядочен по возрастанию.")
+else:
+    print("Массив упорядочен по возрастанию.")
+
+
+
+
+
+import random
+
+arr = [random.randint(-50, 50) for _ in range(20)]
+print("Исходный массив:", arr)
+
+found_positive = False
+first_positive_index = -1
+for i in range(len(arr)):
+    if arr[i] > 0 and not found_positive:
+        first_positive_index = i
+        found_positive = True
+
+if found_positive:
+    del arr[first_positive_index]
+
+min_index = 0
+for i in range(1, len(arr)):
+    if arr[i] < arr[min_index]:
+        min_index = i
+
+del arr[min_index]
+
+print("Массив после удаления:", arr)
+
+
+
+
+
